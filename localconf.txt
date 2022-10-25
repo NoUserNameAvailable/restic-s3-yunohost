@@ -1,0 +1,7 @@
+export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
+export VAGRANT_WSL_WINDOWS_ACCESS_USER_HOME_PATH="/mnt/c/projet2022/restic_ynh"
+export PATH="$PATH:/mnt/d/Program Files/VirtualBox"
+
+
+Blog pour la config windows
+https://thedatabaseme.de/2022/02/20/vagrant-up-running-vagrant-under-wsl2/
