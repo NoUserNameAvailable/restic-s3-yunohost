@@ -34,7 +34,6 @@ ynh_print_info --message="Declaring files to be backed up..."
 #=================================================
 # BACKUP VARIOUS FILES
 #=================================================
-
 ynh_backup "/usr/local/bin/backup-with-$app"
 ynh_backup "/etc/systemd/system/$app.service"
 ynh_backup "/etc/systemd/system/$app.timer"
@@ -46,15 +45,7 @@ ynh_backup "/etc/yunohost/hooks.d/backup_method/05-${app}_app"
 ynh_backup "${final_path}/check_method_${app}"
 ynh_backup "${final_path}/restic_log_${app}"
 
-if [[ "backup_server_type" == "sftp" ]]; then
-  ssh_dir="/root/.ssh"
-  ynh_backup "${ssh_dir}/id_${app}_ed25519"
-  ynh_backup "${ssh_dir}/id_${app}_ed25519.pub"
-  ynh_backup "${ssh_dir}/config"
-fi
-
 #=================================================
 # END OF SCRIPT
 #=================================================
-
 ynh_print_info --message="Backup script completed for $app. (YunoHost will then actually copy those files to the archive)."
