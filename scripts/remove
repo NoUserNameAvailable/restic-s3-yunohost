@@ -65,7 +65,8 @@ ynh_script_progression --message="Removing sudoers rights for user ${app}"
 rm /etc/sudoers.d/${app}
 
 ynh_script_progression --message="Removing ${app} user" --last
-userdel ${app}
+# Remove user and his home
+userdel -r ${app}
 
 #=================================================
 # END OF SCRIPT
