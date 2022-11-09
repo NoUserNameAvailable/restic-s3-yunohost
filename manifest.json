@@ -14,7 +14,7 @@
         "admindoc": "https://restic.readthedocs.io/en/latest/",
         "code": "https://github.com/restic/restic"
     },
-    "license": "BSD-2-Clause",
+    "license": "Apache License",
     "maintainer": {
         "name": "no username available",
         "email": "nop@nop.fr",
@@ -28,78 +28,11 @@
     "arguments": {
         "install": [
             {
-                "name": "backup_server_type",
-                "type": "string",
-                "ask": {
-                    "en": "Choose the type of backup server.",
-                    "fr": "Choisissez le type du serveur de backup."
-                },
-                "choices": [
-                    "sftp",
-                    "s3"
-                ]
-            },
-            {
-                "name": "title_sftp",
+                "name": "title_restic",
                 "type": "display_text",
                 "ask": {
-                    "en": "the text in english",
-                    "fr": "<h2> SFTP configuration</h2>\n Remplissez uniquement cette partie si vous avez sélectionner sftp dans la liste déroulante."
-                }
-            },
-            {
-                "name": "server",
-                "type": "string",
-                "ask": {
-                    "en": "Indicate the server where you want put your backups",
-                    "fr": "Indiquez le serveur où vous voulez faire vos sauvegardes"
-                },
-                "help": {
-                    "en": "IP address or resolvable hostname of your destination server",
-                    "fr": "Adresse IP ou nom résolvable de votre serveur de destination"
-                },
-                "example": "example.com",
-                "optional": true
-            },
-            {
-                "name": "the_name1",
-                "type": "display_text",
-                "ask": {
-                    "en": "the text in english",
-                    "fr": "the text in french"
-                }
-            },
-            {
-                "name": "port",
-                "type": "string",
-                "ask": {
-                    "en": "sftp port of your server",
-                    "fr": "Le port sftp de votre serveur"
-                },
-                "help": {
-                    "en": "Listening port of your sftp or ssh server. The default value is 22",
-                    "fr": "Le port d'écoute de votre serveur sftp ou ssh. La valeur par défaut est 22"
-                },
-                "example": "22",
-                "default": "22",
-                "optional": true
-            },
-            {
-                "name": "ssh_user",
-                "type": "string",
-                "ask": {
-                    "en": "Indicate the ssh user to use to connect on this server",
-                    "fr": "Indiquez l'utilisateur ssh à utiliser pour se connecter au serveur"
-                },
-                "example": "john",
-                "optional": true
-            },
-            {
-                "name": "title_s3",
-                "type": "display_text",
-                "ask": {
-                    "en": "the text in english",
-                    "fr": "<h2> S3 configuration </h2>\n Remplissez uniquement cette partie si vous avez sélectionner S3 dans la liste déroulante."
+                    "en": "<h2>Remote S3 configuration</h2>",
+                    "fr": "<h2>Configuration de la connexion au bucket S3.</h2>"
                 }
             },
             {
@@ -107,7 +40,7 @@
                 "type": "string",
                 "ask": {
                     "en": "Indicate the S3 server.",
-                    "fr": "Indiquez le serveur S3"
+                    "fr": "Indiquez le serveur S3."
                 },
                 "example": "s3.my-server.fr"
             },
@@ -152,7 +85,7 @@
                 "name": "title_restic",
                 "type": "display_text",
                 "ask": {
-                    "en": "the text in english",
+                    "en": "<h2> Restic configuration</h2>h",
                     "fr": "<h2> Restic configuration</h2>"
                 }
             },
@@ -227,14 +160,6 @@
                 },
                 "example": "Daily",
                 "default": "*-*-* 0:15:00"
-            },
-            {
-                "name": "the_name2",
-                "type": "display_text",
-                "ask": {
-                    "en": "the text in english",
-                    "fr": "the text in french"
-                }
             },
             {
                 "name": "check_on_calendar",

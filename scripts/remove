@@ -57,14 +57,6 @@ ynh_secure_remove "${final_path}/restic_check_log_${app}"
 ynh_secure_remove "${final_path}"
 
 #=================================================
-# REMOVE SSH CONFIG
-#=================================================
-ynh_script_progression --message="Removing ssh config"
-
-ssh_dir="/root/.ssh"
-sed -e "/begin ${app}/,/end ${app}/{/.*/d}" ${ssh_dir}/config -i || true
-
-#=================================================
 # GENERIC FINALIZATION
 #=================================================
 # REMOVE DEDICATED USER
