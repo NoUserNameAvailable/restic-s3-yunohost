@@ -1,4 +1,4 @@
-SOURCE_URL=https://github.com/mattermost/focalboard/releases/download/v7.4.4/focalboard-server-linux-amd64.tar.gz
+SOURCE_URL=https://github.com/restic/restic/releases/download/v0.14.0/restic_0.14.0_linux_amd64.bz2
 SOURCE_SUM=c8da7350dc334cd5eaf13b2c9d6e689d51e7377ba1784cc6d65977bd44ee1165
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=bz2
