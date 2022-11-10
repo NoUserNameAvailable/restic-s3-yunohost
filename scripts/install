@@ -41,11 +41,8 @@ ynh_save_args s3_server s3_port s3_aws_access_key_id s3_aws_secret_access_key s3
 ynh_script_progression --message="Installing restic binary" --weight=7
 
 # TODO Delete old methode to install
-# install_restic
-
-ynh_app_setting_set --app=$app --key=final_path --value=$final_path
-ynh_setup_source --dest_dir="/usr/local/bin/$app"
-
+# Can't use ynh_setup_source because bz2 is unrognized format
+install_restic
 
 
 #=================================================
