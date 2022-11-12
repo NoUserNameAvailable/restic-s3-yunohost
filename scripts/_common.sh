@@ -40,6 +40,10 @@ install_restic () {
   else
     ynh_die --message="\nDownloaded file does not match expected sha256 sum, aborting"
   fi
+
+  # Delete downloaded files in tmp
+  [ -e /tmp/restic.bz2 ] && rm /tmp/restic.bz2
+  [ -e /tmp/restic-sha256sums ] && rm /tmp/restic-sha256sums
 }
 
 #=================================================

@@ -1,0 +1,1 @@
+__APP__ ALL = (root) NOPASSWD:  /usr/bin/yunohost backup create *, /bin/journalctl*, /usr/bin/find, /usr/bin/yunohost app setting *, /opt/yunohost/__APP__/check_method___APP__

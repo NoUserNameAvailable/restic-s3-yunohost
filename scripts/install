@@ -40,7 +40,6 @@ ynh_save_args s3_server s3_port s3_aws_access_key_id s3_aws_secret_access_key s3
 #=================================================
 ynh_script_progression --message="Installing restic binary" --weight=7
 
-# TODO Delete old methode to install
 # Can't use ynh_setup_source because bz2 is unrognized format
 install_restic
 
@@ -50,14 +49,20 @@ install_restic
 #=================================================
 ynh_script_progression --message="Creating user ${app}"
 
-useradd -m ${app}
+# TODO check if home is mandatory
+ynh_system_user_create --username="$app" --home_dir="/home/$app"
 
 ynh_script_progression --message="Configure ${app} user sudoer rights"
 
-cat >/tmp/${app}_sudoer <<EOSUDOER
-${app} ALL = (root) NOPASSWD: /usr/bin/yunohost*, /bin/journalctl*, /usr/bin/find /etc/yunohost/apps -name backup, ${final_path}/check_method_${app}
-EOSUDOER
-visudo -cf /tmp/${app}_sudoer && mv /tmp/${app}_sudoer /etc/sudoers.d/${app}
+# TODO old ${app} ALL = (root) NOPASSWD:  /usr/bin/yunohost*, /bin/journalctl*, /usr/bin/find /etc/yunohost/apps -name backup, ${final_path}/check_method_${app}
+#cat >/tmp/${app}_sudoer <<EOSUDOER
+#${app} ALL = (root) NOPASSWD:  /usr/bin/yunohost backup create *, /bin/journalctl*, /usr/bin/find /etc/yunohost/apps -name backup, ${final_path}/check_method_${app}
+#EOSUDOER
+#visudo -cf /tmp/${app}_sudoer && mv /tmp/${app}_sudoer /etc/sudoers.d/${app}
+
+
+ynh_add_config --template="sudoer" --destination="/etc/sudoers.d/$app"
+chown root:root "/etc/sudoers.d/$app"
 
 #=================================================
 # ACTIVATE BACKUP METHODS
